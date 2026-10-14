@@ -15,7 +15,7 @@
             margin: 0;
             padding: 0;
             /* ===== BODY BACKGROUND — DARK GRAY ===== */
-            background-color: #3a3a3a;
+            background-color: #e20074;
             color: #ffffff; /* White text for readability on dark background */
         }
 
@@ -85,13 +85,30 @@
             border-radius: 0 4px 4px 0;
             cursor: pointer;
         }
+		/* Style and transition for the expanding search bar */
+    .expanding-search {
+        width: 200px; /* Initial smaller width */
+        padding: 10px 15px;
+        font-size: 16px;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        outline: none;
+        transition: width 0.4s ease-in-out; /* Smooth expanding animation */
+    }
 
-        /* ===== VIDEO SECTION — LIGHT GRAY CONTAINER ===== */
+    /* Expands when clicked (focused) OR when typing text */
+    .expanding-search:focus,
+    .expanding-search:not(:placeholder-shown) {
+        width: 450px; /* Expanded width */
+        border-color: #007bff;
+    }	
+
+        /* ===== VIDEO SECTION — MAGENTA PINK CONTAINER ===== */
         .video-container {
             text-align: center;
             padding: 40px 20px;
-            background-color: #e6e6e6; /* Kept light gray as in screenshot */
-            color: #000000; /* Black text inside this section */
+            background-color: #e20074; /* Kept light gray as in screenshot */
+            color: #FFFFFF; /* Black text inside this section */
         }
         .video-container h3 {
             margin-bottom: 25px;
@@ -144,7 +161,7 @@
 <body>
     <header>
         <h1>Anything Under The Sun</h1>
-        <p>Your Trusted Online Article, Business Design and News Maker</p>
+        <p>Your Trusted Top-notch Web Developer, video/Content Editor, News and Business Article Maker, and Experienced Customer Support.</p>
     </header>
 
     <nav>
@@ -156,19 +173,16 @@
             <li><a href="FAQ's.html">FAQ's</a></li>
             <li><a href="About.html">About</a></li>
         </ul>
-        <form action="/search" method="get">
-            <input type="text" placeholder="Search..." name="q">
-            <button type="submit">Search</button>
+        <form action="/search" method="get" style="display: flex; justify-content: center; align-items: center; padding: 20px; background-color: #333;">
+        <input type="text" placeholder="Search..." name="q" style="width: 250px; padding: 12px 16px; font-size: 16px; border: 2px solid #ccc; border-radius: 4px 0 0 4px; outline: none; transition: width 0.4s ease, border-color 0.4s ease;" onfocus="this.style.width='450px'; this.style.borderColor='#007bff';" onblur="if(this.value==''){this.style.width='250px'; this.style.borderColor='#ccc';}">
+        <button type="submit" style="padding: 12px 20px; font-size: 16px; background-color: #007bff; color: white; border: 2px solid #007bff; border-left: none; border-radius: 0 4px 4px 0; cursor: pointer; font-weight: bold;">Search</button>
         </form>
     </nav>
 
-    <div class="video-container">
-        <h3>Watch how we do it!</h3>
-        <video width="840" height="480" controls>
-            <source src="videos/myvideo.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
+<div class="video-container" style="text-align: center;">
+    <h3>Watch how we do it!</h3>
+    <iframe width="840" height="480" src="https://www.youtube.com/embed/Xp8q0FG63xY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="max-width: 100%;"></iframe>
+</div>
 
     <section class="hero-section">
         <h2>Ready to Elevate Your Brand Content?</h2>
